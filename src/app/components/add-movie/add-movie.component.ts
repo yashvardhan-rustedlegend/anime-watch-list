@@ -31,7 +31,7 @@ export class AddMovieComponent implements OnInit {
         title: this.movieTitle,
         id: Math.round(Math.random() * 100000),
       }
-      this.moviesService.addMovie(newMovie).subscribe((movie) => this.router.navigate(['/']));
+      this.moviesService.addMovie(newMovie).subscribe((movie) => this.router.navigate(['/list']));
     }
   }
 }
