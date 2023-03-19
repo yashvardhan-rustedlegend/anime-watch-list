@@ -26,7 +26,8 @@ import { AddMovieComponent } from './components/add-movie/add-movie.component';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
