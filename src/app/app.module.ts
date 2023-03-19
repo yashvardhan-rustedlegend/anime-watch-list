@@ -11,6 +11,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { SignupUpPageComponent } from './signup-up-page/signup-up-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { AddMovieComponent } from './components/add-movie/add-movie.component';
     ButtonComponent,
     MovieTileComponent,
     AddMovieComponent,
+    SignupUpPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
