@@ -29,9 +29,9 @@ export class AddMovieComponent implements OnInit {
         isWatched: this.isWatched,
         image: this.image,
         title: this.movieTitle,
-        id: Math.round(Math.random() * 100000),
+        id: Math.round(Math.random() * 100000),//random number will be alloted to the id
       }
-      this.moviesService.addMovie(newMovie).subscribe((movie) => this.router.navigate(['/list']));
+      this.moviesService.addMovie(newMovie).subscribe((movie) => this.router.navigate(['/list']));//after adding anime to the list, watch list page will be open
     }
   }
 }

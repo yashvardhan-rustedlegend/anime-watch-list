@@ -9,26 +9,26 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./signup-up-page.component.scss']
 })
 export class SignupUpPageComponent {
-  public signupForm!:FormGroup;
-  constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router){}
+  public signupForm!: FormGroup;
+  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
-  ngOnInit():void{
-    this.signupForm=this.formbuilder.group({
-      fullname:[''],
-      email:[''],
-      password:[''],
-      mobile:[''],
+  ngOnInit(): void {
+    this.signupForm = this.formbuilder.group({
+      fullname: [''],
+      email: [''],
+      password: [''],
+      mobile: [''],
     }
     )
   }
-  signUp(){
-    this.http.post<any>("https://my-data-4hkn.onrender.com/signup",this.signupForm.value).subscribe(
-      res=>{
+  signUp() {
+    this.http.post<any>("https://my-data-4hkn.onrender.com/signup", this.signupForm.value).subscribe( //signup credentials are stored for further login
+      res => { // Post Method is used 
         alert("signup Sucessful");
         this.signupForm.reset();
         this.router.navigate(['login']);
       },
-      err=>{
+      err => {
         alert("something went wrong");
       }
     )

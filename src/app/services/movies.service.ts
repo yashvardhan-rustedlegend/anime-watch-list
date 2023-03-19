@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MoviesService {
-  private baseApiUrl = 'https://my-data-4hkn.onrender.com/movies';
+  private baseApiUrl = 'https://my-data-4hkn.onrender.com/movies';//Json data is hosted on render server, so that site can be hosted on Netlify. 
 
   constructor(private http: HttpClient) { }
 

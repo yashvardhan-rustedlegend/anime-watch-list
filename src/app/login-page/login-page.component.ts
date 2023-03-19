@@ -1,4 +1,4 @@
-import { Component ,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -8,33 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  public loginForm!:FormGroup;
-  constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router){}
+  public loginForm!: FormGroup;
+  constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
-  ngOnInit():void{
-    this.loginForm=this.formbuilder.group({
-      email:[''],
-      password:[''],
-      
+  ngOnInit(): void {
+    this.loginForm = this.formbuilder.group({
+      email: [''],
+      password: [''],
+
     }
     )
   }
-  logIn(){
-    this.http.get<any>("https://my-data-4hkn.onrender.com/signup").subscribe(
-      res=>{
-        const user= res.find((a:any)=>{
-          return a.email=== this.loginForm.value.email && a.password=== this.loginForm.value.password
+  logIn() {
+    this.http.get<any>("https://my-data-4hkn.onrender.com/signup").subscribe( //signup array is stored in db.json 
+      res => {
+        const user = res.find((a: any) => {
+          return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password //checking login and password
         });
-        if(user){
+        if (user) {
           alert("Login Success");
           this.loginForm.reset();
           this.router.navigate(['list']);
         }
-        else{
+        else {
           alert('User not found');
         }
       },
-      err=>{
+      err => {
         alert("something went wrong");
       }
     )

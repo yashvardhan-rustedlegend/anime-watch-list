@@ -7,8 +7,8 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './watch-list.component.html',
   styleUrls: ['./watch-list.component.scss']
 })
-export class WatchListComponent implements OnInit {
-  movies: Movies[] = [];
+export class WatchListComponent implements OnInit { //two array is created whether anime is watched or yet to watched.
+  movies: Movies[] = []; // all anime list.
   yetToWatchMovies: Movies[] = [];
   watchedMovies: Movies[] = [];
 
@@ -25,15 +25,15 @@ export class WatchListComponent implements OnInit {
     }
   }
 
-  onFavClick(movie: Movies): void {
-    this.moviesService.updateMovie({ ...movie, isFav: !movie.isFav, isWatched: movie.isFav ? true : movie.isWatched }).subscribe((updatedMovie) => {
-      if (updatedMovie.isWatched) {
+  onFavClick(movie: Movies): void { //if anime is favourite
+    this.moviesService.updateMovie({ ...movie, isFav: !movie.isFav, isWatched: movie.isFav ? true : movie.isWatched }).subscribe((updatedMovie) => { //if movie is watched or movie is your favourite  
+      if (updatedMovie.isWatched) { //if movie is already watched
         const alreadyWatched = this.watchedMovies.find(movie => movie.id === updatedMovie.id);
-        if (alreadyWatched) {
+        if (alreadyWatched) { // if already watched
           alreadyWatched.isFav = updatedMovie.isFav
           this.watchedMovies = this.watchedMovies.map((m) => {
-            if (m.id === updatedMovie.id) {
-              return updatedMovie;
+            if (m.id === updatedMovie.id) { 
+              return updatedMovie; 
             }
             return m;
           })
@@ -49,7 +49,7 @@ export class WatchListComponent implements OnInit {
     });
   }
 
-  onWatchedClick(movie: Movies): void {
+  onWatchedClick(movie: Movies): void { //if watched 
     const payloadMovie = { ...movie, isWatched: !movie.isWatched };
     payloadMovie.isFav = payloadMovie.isWatched ? payloadMovie.isFav : false;
     this.moviesService.updateMovie(payloadMovie).subscribe((updatedMovie) => {

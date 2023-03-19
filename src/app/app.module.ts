@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { SignupUpPageComponent } from './signup-up-page/signup-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-
+//importing modules and compnents
 @NgModule({
   declarations: [
     AppComponent,
